@@ -1,0 +1,10 @@
+#!/bin/bash
+
+main() {
+  local PATH="$*"
+  mkdir -p "$PATH"/disabled/{features,plugins}
+  mv "$PATH"/plugins/org.eclipse.jpt.* "$PATH"/disabled/plugins
+  mv "$PATH"/features/org.eclipse.jpt.* "$PATH"/disabled/features
+}
+
+main "$@"
