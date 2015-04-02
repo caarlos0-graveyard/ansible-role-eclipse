@@ -1,10 +1,18 @@
 #!/bin/bash
+set -eo pipefail
 
 main() {
-  local PATH="$*"
-  mkdir -p "$PATH"/disabled/{features,plugins}
-  mv "$PATH"/plugins/org.eclipse.jpt.* "$PATH"/disabled/plugins
-  mv "$PATH"/features/org.eclipse.jpt.* "$PATH"/disabled/features
+  local eclipse_home="$1"; shift
+  local eclipse_ini="$1"; shift
+
+  for pattern in 'org.eclipse.jpt.*' '*jpa*' '*cvs*' '*git*'; do
+    echo "Removing ${pattern}..."
+    find "$eclipse_home" -iname "$pattern" -exec rm -rf {} \;
+  done
+
+  echo "Improving memory config..."
+  sed -i'' '/^--launcher.XXMaxPermSize$/{$!{N;s/256m/512m/}}' "$eclipse_ini"
+  sed -i'' -e 's/-Xms40m/-Xms128m/' -e 's/-Xmx512m/-Xmx2048m/' "$eclipse_ini"
 }
 
 main "$@"
