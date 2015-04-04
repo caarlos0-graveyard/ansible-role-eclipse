@@ -5,7 +5,7 @@ main() {
   local eclipse_home="$1"; shift
   local eclipse_ini="$1"; shift
 
-  for pattern in 'org.eclipse.jpt.*' '*jpa*' '*cvs*' '*git*'; do
+  for pattern in 'org.eclipse.jpt.*' '*jpa*' '*cvs*' '*git*' '*validation*'; do
     echo "Removing ${pattern}..."
     find "$eclipse_home" -iname "$pattern" -exec rm -rf {} \;
   done
