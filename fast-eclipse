@@ -1,23 +1,26 @@
 #!/bin/bash
 set -eo pipefail
+[[ "${DEBUG:-}" ]] && set -x
 
 main() {
-  local eclipse_home="$1"; shift
-  local eclipse_ini="$1"; shift
+  local ECLIPSE_HOME="$1"; shift
+  local ECLIPSE_INI="$(find "$ECLIPSE_HOME" -name eclipse.ini)"
 
   for pattern in 'org.eclipse.jpt.*' '*jpa*' '*cvs*' '*git*' '*validation*'; do
     echo "Removing ${pattern}..."
-    find "$eclipse_home" -iname "$pattern" -exec rm -rf {} \;
+    find "$ECLIPSE_HOME" -iname "$pattern" -exec rm -rf {} \;
   done
 
   echo "Improving memory config..."
-  sed -i'' '/^--launcher.XXMaxPermSize$/{$!{N;s/256m/512m/}}' "$eclipse_ini"
-  sed -i'' -e 's/-Xms40m/-Xms128m/' -e 's/-Xmx512m/-Xmx2048m/' "$eclipse_ini"
+  sed -i'' '/^--launcher.XXMaxPermSize$/{$!{N;s/256m/512m/}}' "$ECLIPSE_INI"
+  sed -i'' -e 's/-Xms40m/-Xms128m/' -e 's/-Xmx512m/-Xmx2048m/' "$ECLIPSE_INI"
 
   echo "Disabling class verification..."
-  echo "-Xverify:none" >> "$eclipse_ini"
+  echo "-Xverify:none" >> "$ECLIPSE_INI"
   echo "Configuring eclipse to start in clean mode..."
-  echo "-clean" >> "$eclipse_ini"
+  echo "-clean" >> "$ECLIPSE_INI"
+
+  echo "Done!"
 }
 
 main "$@"
