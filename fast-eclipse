@@ -13,6 +13,8 @@ main() {
   echo "Improving memory config..."
   sed -i'' '/^--launcher.XXMaxPermSize$/{$!{N;s/256m/512m/}}' "$eclipse_ini"
   sed -i'' -e 's/-Xms40m/-Xms128m/' -e 's/-Xmx512m/-Xmx2048m/' "$eclipse_ini"
+
+  echo "-clean" | tee -a "$eclipse_ini"
 }
 
 main "$@"
