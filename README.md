@@ -1,4 +1,4 @@
-# fast-eclipse
+# fast-eclipse [![Build Status](https://travis-ci.org/caarlos0/fast-eclipse.svg)](https://travis-ci.org/caarlos0/fast-eclipse)
 
 Simple hacks to improve eclipse's performance
 
