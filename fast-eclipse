@@ -8,6 +8,7 @@ main() {
 
   for pattern in 'org.eclipse.jpt.*' '*jpa*' '*cvs*' '*git*' '*validation*'; do
     echo "Removing ${pattern}..."
+    find "$ECLIPSE_HOME" -type d -iname "$pattern" -exec rm -rf {} \;
     find "$ECLIPSE_HOME" -iname "$pattern" -exec rm -rf {} \;
   done
 
