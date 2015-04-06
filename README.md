@@ -11,7 +11,7 @@ memory configs, starting in clean mode and disabling class verification.
 ## Usage
 
 ```sh
-./fast-eclipse /path/to/eclipse/root
+curl -s https://raw.githubusercontent.com/caarlos0/fast-eclipse/master/fast-eclipse | bash -s /path/to/eclipse/home
 ```
 
 For OSX, if you installed Eclipse with Homebrew, the eclipse root will
@@ -20,5 +20,5 @@ be something like `/opt/homebrew-cask/Caskroom/eclipse-jee/4.4.1/eclipse`.
 You can also start it in debug mode:
 
 ```sh
-DEBUG=1 ./fast-eclipse /opt/homebrew-cask/Caskroom/eclipse-jee/4.4.1/eclipse
+curl -s https://raw.githubusercontent.com/caarlos0/fast-eclipse/master/fast-eclipse | DEBUG=1 bash -s /path/to/eclipse/home
 ```
