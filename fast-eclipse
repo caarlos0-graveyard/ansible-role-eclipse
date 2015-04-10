@@ -22,8 +22,8 @@ main() {
 
   echo "Disabling class verification..."
   echo "-Xverify:none" >> "$ECLIPSE_INI"
-  echo "Configuring eclipse to start in clean mode..."
-  echo "-clean" >> "$ECLIPSE_INI"
+  # echo "Configuring eclipse to start in clean mode..."
+  # echo "-clean" >> "$ECLIPSE_INI"
 
   echo "Done!"
 }
