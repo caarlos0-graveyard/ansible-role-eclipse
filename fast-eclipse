@@ -8,10 +8,7 @@ main() {
 
   for pattern in 'persistence' 'cvs' 'git' 'jpa' 'validation' 'jaxb' 'eclipselink'; do
     echo "Removing ${pattern}..."
-    find "$ECLIPSE_HOME" -type d -iname "*${pattern}*" | while read f; do
-      rm -rf "$f" || true
-    done
-    find "$ECLIPSE_HOME" -iname "$pattern" | while read f; do
+    find "$ECLIPSE_HOME" -iname "*${pattern}*" | while read f; do
       rm -rf "$f" || true
     done
   done
