@@ -6,10 +6,14 @@ main() {
   local ECLIPSE_HOME="$1"; shift
   local ECLIPSE_INI="$(find "$ECLIPSE_HOME" -name eclipse.ini)"
 
-  for pattern in 'org.eclipse.jpt.*' '*jpa*' '*cvs*' '*git*' '*validation*'; do
+  for pattern in 'persistence' 'cvs' 'git' 'jpa' 'validation' 'jaxb' 'eclipselink'; do
     echo "Removing ${pattern}..."
-    find "$ECLIPSE_HOME" -type d -iname "$pattern" -exec rm -rf {} \;
-    find "$ECLIPSE_HOME" -iname "$pattern" -exec rm -rf {} \;
+    find "$ECLIPSE_HOME" -type d -iname "*${pattern}*" | while read f; do
+      rm -rf "$f" || true
+    done
+    find "$ECLIPSE_HOME" -iname "$pattern" | while read f; do
+      rm -rf "$f" || true
+    done
   done
 
   echo "Improving memory config..."
