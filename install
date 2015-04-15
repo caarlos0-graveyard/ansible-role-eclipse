@@ -33,13 +33,9 @@ install() {
 }
 
 install-p2is() {
-  # eclemma
   p2i "http://update.eclemma.org/" "com.mountainminds.eclemma.feature.feature.group"
-  # pitest
   p2i "http://eclipse.pitest.org/release" "org.pitest.pitclipse.feature.feature.group"
-  # m2e
   p2i "http://download.eclipse.org/technology/m2e/releases/" "org.eclipse.m2e.feature.feature.group"
-  # jboss-as tools
   p2i "http://download.jboss.org/jbosstools/updates/stable/luna/" "org.jboss.ide.eclipse.as.feature.feature.group"
 }
 
