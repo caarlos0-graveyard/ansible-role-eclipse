@@ -1,24 +1,3 @@
-# fast-eclipse [![Build Status](https://travis-ci.org/caarlos0/fast-eclipse.svg)](https://travis-ci.org/caarlos0/fast-eclipse)
+# my-eclipse [![Build Status](https://travis-ci.org/caarlos0/my-eclipse.svg)](https://travis-ci.org/caarlos0/my-eclipse)
 
-Simple hacks to improve eclipse's performance
-
-## How it works
-
-`fast-eclipse` removes some not-so-used plugins like cvs, egit, jpa and,
-of course, all validations. It also changes `eclipse.ini` a bit, tweaking
-memory configs, starting in clean mode and disabling class verification.
-
-## Usage
-
-```sh
-curl -s https://raw.githubusercontent.com/caarlos0/fast-eclipse/master/fast-eclipse | bash -s /path/to/eclipse/home
-```
-
-For OSX, if you installed Eclipse with Homebrew, the eclipse root will
-be something like `/opt/homebrew-cask/Caskroom/eclipse-jee/4.4.1/eclipse`.
-
-You can also start it in debug mode:
-
-```sh
-curl -s https://raw.githubusercontent.com/caarlos0/fast-eclipse/master/fast-eclipse | DEBUG=1 bash -s /path/to/eclipse/home
-```
+> TODO
