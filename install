@@ -51,7 +51,6 @@ improve-eclipseini() {
   echo "-Xverify:none" >> "$ECLIPSE_INI"
 }
 
-
 remove-uneeded-slow-stuff() {
   for pattern in 'persistence' 'cvs' 'git' 'svn' 'jpa' 'validation' 'jaxb' 'eclipselink'; do
     echo "Removing ${pattern}..."
@@ -65,4 +64,4 @@ install
 install-lombok
 install-p2is
 improve-eclipseini
-remove-uneeded-slow-stuff
+# remove-uneeded-slow-stuff this is a little unstable
