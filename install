@@ -51,17 +51,22 @@ improve-eclipseini() {
   echo "-Xverify:none" >> "$ECLIPSE_INI"
 }
 
-remove-uneeded-slow-stuff() {
-  for pattern in 'persistence' 'cvs' 'git' 'svn' 'jpa' 'validation' 'jaxb' 'eclipselink'; do
-    echo "Removing ${pattern}..."
-    find "$ECLIPSE_HOME" -iname "*${pattern}*" | while read f; do
-      rm -rf "$f" || true
-    done
-  done
+p2u() {
+  eclipse -application org.eclipse.equinox.p2.director -noSplash \
+    -repository http://download.eclipse.org/releases/luna/ \
+    -uninstallIU "$*"
+}
+
+uninstall-plugins() {
+  p2u "org.eclipse.egit.feature.group,org.eclipse.jgit.feature.group"
+  p2u "org.eclipse.cvs.feature.group"
+  p2u "org.eclipse.persistence.antlr,org.eclipse.persistence.asm,org.eclipse.persistence.core,org.eclipse.persistence.dbws.builder,org.eclipse.persistence.dbws,org.eclipse.persistence.jpa.jpql,org.eclipse.persistence.jpa,org.eclipse.persistence.moxy"
+  p2u "org.eclipse.jpt.common.eclipselink.feature.feature.group,org.eclipse.jpt.dbws.eclipselink.feature.feature.group,org.eclipse.jpt.jpa.eclipselink.feature.feature.group"
+  p2u "org.eclipse.jpt.jaxb.feature.feature.group,org.eclipse.jpt.jaxb.eclipselink.feature.feature.group"
 }
 
 install
 install-lombok
 install-p2is
 improve-eclipseini
-# remove-uneeded-slow-stuff this is a little unstable
+uninstall-plugins
