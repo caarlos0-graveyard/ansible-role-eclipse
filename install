@@ -2,12 +2,6 @@
 set -eo pipefail
 [[ "${DEBUG:-}" ]] && set -x
 
-p2i() {
-  local repo="$1"; shift
-  eclipse -application org.eclipse.equinox.p2.director -noSplash \
-    -repository "$repo" -installIUs "$*"
-}
-
 install-osx() {
   brew cask install eclipse-jee
   export ECLIPSE_HOME="$(brew cask info eclipse-jee | grep opt | cut -f1 -d' ')/eclipse"
@@ -30,6 +24,12 @@ install() {
   else
     install-linux
   fi
+}
+
+p2i() {
+  local repo="$1"; shift
+  eclipse -application org.eclipse.equinox.p2.director -noSplash \
+    -repository "$repo" -installIUs "$*"
 }
 
 install-p2is() {
