@@ -10,8 +10,8 @@ p2i() {
 
 install-osx() {
   brew cask install eclipse-jee
-  export ECLIPSE_HOME="$(brew cask info eclipse-jee | grep opt | cut -f1 -d' ')/eclipse/Eclipse.app/Contents/MacOS/"
-  ln -sf "$ECLIPSE_HOME/eclipse" /usr/bin/eclipse
+  export ECLIPSE_HOME="$(brew cask info eclipse-jee | grep opt | cut -f1 -d' ')/eclipse"
+  sudo ln -sf "$ECLIPSE_HOME/Eclipse.app/Contents/MacOS/eclipse" /usr/bin/eclipse
 }
 
 install-linux() {
