@@ -41,7 +41,7 @@ install-p2is() {
 
 install-lombok() {
   curl -o "$ECLIPSE_HOME"/lombok.jar http://projectlombok.org/downloads/lombok.jar
-  java -jar "$ECLIPSE_HOME"/lombok.jar install auto
+  java -jar "$ECLIPSE_HOME"/lombok.jar install "$ECLIPSE_HOME"
 }
 
 improve-eclipseini() {
