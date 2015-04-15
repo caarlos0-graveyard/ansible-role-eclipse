@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Eclipse
+Comment=Eclipse IDE
+Exec=/opt/eclipse/eclipse -clean %F
+Icon=/opt/eclipse/icon.xpm
+Type=Application
+StartupNotify=true
+Categories=TextEditor;Development;Utility;
+MimeType=text/plain
