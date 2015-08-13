@@ -38,7 +38,11 @@ install-p2is() {
   p2i "http://update.eclemma.org/" "com.mountainminds.eclemma.feature.feature.group"
   p2i "http://eclipse.pitest.org/release" "org.pitest.pitclipse.feature.feature.group"
   p2i "http://download.eclipse.org/technology/m2e/releases/" "org.eclipse.m2e.feature.feature.group"
-  p2i "http://download.jboss.org/jbosstools/updates/stable/luna/" "org.jboss.ide.eclipse.as.feature.feature.group"
+  # p2i "http://download.jboss.org/jbosstools/updates/stable/mars/" "org.jboss.ide.eclipse.as.feature.feature.group"
+  p2i "http://download.jboss.org/jbosstools/mars/development/updates/" "org.jboss.ide.eclipse.as.feature.feature.group"
+  p2i "http://velo.github.io/maven-formatter-plugin/p2/1.5.0" "com.marvinformatics.formatter.feature.feature.group"
+  p2i "http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201405280027/" "org.sonatype.m2e.buildhelper.feature.feature.group"
+  p2i "http://beust.com/eclipse/" "org.testng.eclipse.feature.group"
 }
 
 install-lombok() {
@@ -53,22 +57,7 @@ improve-eclipseini() {
   echo "-Xverify:none" >> "$ECLIPSE_INI"
 }
 
-p2u() {
-  eclipse -application org.eclipse.equinox.p2.director -noSplash \
-    -repository http://download.eclipse.org/releases/luna/ \
-    -uninstallIU "$*"
-}
-
-uninstall-plugins() {
-  p2u "org.eclipse.egit.feature.group,org.eclipse.jgit.feature.group"
-  p2u "org.eclipse.cvs.feature.group"
-  p2u "org.eclipse.persistence.antlr,org.eclipse.persistence.asm,org.eclipse.persistence.core,org.eclipse.persistence.dbws.builder,org.eclipse.persistence.dbws,org.eclipse.persistence.jpa.jpql,org.eclipse.persistence.jpa,org.eclipse.persistence.moxy"
-  p2u "org.eclipse.jpt.common.eclipselink.feature.feature.group,org.eclipse.jpt.dbws.eclipselink.feature.feature.group,org.eclipse.jpt.jpa.eclipselink.feature.feature.group"
-  p2u "org.eclipse.jpt.jaxb.feature.feature.group,org.eclipse.jpt.jaxb.eclipselink.feature.feature.group"
-}
-
 install
 install-lombok
 install-p2is
 improve-eclipseini
-uninstall-plugins
