@@ -36,7 +36,7 @@ p2i() {
     -repository "$repo" -installIUs "$*"
 }
 
-install-p2is() {
+install_p2is() {
   p2i "http://update.eclemma.org/" "com.mountainminds.eclemma.feature.feature.group"
   p2i "http://eclipse.pitest.org/release" "org.pitest.pitclipse.feature.feature.group"
   p2i "http://download.eclipse.org/technology/m2e/releases/" "org.eclipse.m2e.feature.feature.group"
@@ -46,14 +46,15 @@ install-p2is() {
   p2i "http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201405280027/" "org.sonatype.m2e.buildhelper.feature.feature.group"
   p2i "http://beust.com/eclipse/" "org.testng.eclipse.feature.group"
   p2i "http://eclipse.schedenig.name" "name.schedenig.eclipse.grepconsole.source.feature.group"
+  p2i "http://download.jboss.org/jbosstools/updates/m2e-extensions/m2e-apt" "org.jboss.tools.maven.apt.feature.feature.group"
 }
 
-install-lombok() {
+install_lombok() {
   curl -o "$ECLIPSE_HOME"/lombok.jar http://projectlombok.org/downloads/lombok.jar
   java -jar "$ECLIPSE_HOME"/lombok.jar install "$ECLIPSE_HOME"
 }
 
-improve-eclipseini() {
+improve_eclipseini() {
   local ECLIPSE_INI
   ECLIPSE_INI="$(find "$ECLIPSE_HOME" -name eclipse.ini)"
   sed -i'' '/^--launcher.XXMaxPermSize$/{$!{N;s/256m/512m/}}' "$ECLIPSE_INI"
@@ -62,6 +63,6 @@ improve-eclipseini() {
 }
 
 install
-install-lombok
-install-p2is
-improve-eclipseini
+install_lombok
+install_p2is
+improve_eclipseini
