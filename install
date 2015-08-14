@@ -2,15 +2,17 @@
 set -eo pipefail
 [[ "${DEBUG:-}" ]] && set -x
 
+export ECLIPSE_HOME
+
 install-osx() {
   brew cask install eclipse-jee
-  export ECLIPSE_HOME="$(brew cask info eclipse-jee | grep opt | cut -f1 -d' ')/eclipse"
+  ECLIPSE_HOME="$(brew cask info eclipse-jee | grep opt | cut -f1 -d' ')/eclipse"
   sudo ln -sf "$ECLIPSE_HOME/Eclipse.app/Contents/MacOS/eclipse" /usr/bin/eclipse
 }
 
 install-linux() {
   wget -c -O /tmp/eclipse.tar.gz http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz
-  export ECLIPSE_HOME="/opt/eclipse"
+  ECLIPSE_HOME="/opt/eclipse"
   [ -d "$ECLIPSE_HOME" ] && sudo mv "$ECLIPSE_HOME" "$ECLIPSE_HOME"_backup
   sudo tar xzvf /tmp/eclipse.tar.gz -C /opt
   sudo chown -Rf "$(whoami)" "$ECLIPSE_HOME"
@@ -52,7 +54,8 @@ install-lombok() {
 }
 
 improve-eclipseini() {
-  local ECLIPSE_INI="$(find "$ECLIPSE_HOME" -name eclipse.ini)"
+  local ECLIPSE_INI
+  ECLIPSE_INI="$(find "$ECLIPSE_HOME" -name eclipse.ini)"
   sed -i'' '/^--launcher.XXMaxPermSize$/{$!{N;s/256m/512m/}}' "$ECLIPSE_INI"
   sed -i'' -e 's/-Xms40m/-Xms128m/' -e 's/-Xmx512m/-Xmx2048m/' "$ECLIPSE_INI"
   echo "-Xverify:none" >> "$ECLIPSE_INI"
