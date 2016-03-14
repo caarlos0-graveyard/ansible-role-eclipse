@@ -11,7 +11,7 @@ install-osx() {
 }
 
 install-linux() {
-  wget -c -O /tmp/eclipse.tar.gz http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-linux-gtk-x86_64.tar.gz&mirror_id=576
+  wget -c -O /tmp/eclipse.tar.gz http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/mars/2/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz
   ECLIPSE_HOME="/opt/eclipse"
   [ -d "$ECLIPSE_HOME" ] && sudo mv "$ECLIPSE_HOME" "$ECLIPSE_HOME"_backup
   sudo tar xzvf /tmp/eclipse.tar.gz -C /opt
