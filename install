@@ -6,14 +6,14 @@ export ECLIPSE_HOME
 
 install-osx() {
   brew cask install eclipse-jee
-  ECLIPSE_HOME="$(brew cask info eclipse-jee | grep opt | cut -f1 -d' ')/eclipse"
-  sudo ln -sf "$ECLIPSE_HOME/Eclipse.app/Contents/MacOS/eclipse" /usr/bin/eclipse
+  ECLIPSE_HOME="$(brew cask info eclipse-jee | grep opt | awk '{print $1}')"
+  export PATH="$ECLIPSE_HOME/Eclipse.app/Contents/MacOS/:$PATH"
 }
 
 install-linux() {
   wget -c -O /tmp/eclipse.tar.gz http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/mars/2/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz
   ECLIPSE_HOME="/opt/eclipse"
-  [ -d "$ECLIPSE_HOME" ] && sudo mv "$ECLIPSE_HOME" "$ECLIPSE_HOME"_backup
+  test -d "$ECLIPSE_HOME" && sudo mv "$ECLIPSE_HOME" "$ECLIPSE_HOME"_backup
   sudo tar xzvf /tmp/eclipse.tar.gz -C /opt
   sudo chown -Rf "$(whoami)" "$ECLIPSE_HOME"
   mkdir -p  ~/.local/share/applications/
@@ -38,10 +38,9 @@ p2i() {
 
 install_p2is() {
   p2i "http://update.eclemma.org/" "com.mountainminds.eclemma.feature.feature.group"
-  p2i "http://eclipse.pitest.org/release" "org.pitest.pitclipse.feature.feature.group"
   p2i "http://download.eclipse.org/technology/m2e/releases/" "org.eclipse.m2e.feature.feature.group"
-  p2i "http://download.jboss.org/jbosstools/updates/stable/luna/" "org.jboss.ide.eclipse.as.feature.feature.group"
-  # p2i "http://download.jboss.org/jbosstools/mars/development/updates/" "org.jboss.ide.eclipse.as.feature.feature.group"
+  # p2i "http://download.jboss.org/jbosstools/updates/stable/mars/" "org.jboss.ide.eclipse.as.feature.feature.group"
+  p2i "http://download.jboss.org/jbosstools/mars/development/updates/" "org.jboss.ide.eclipse.as.feature.feature.group"
   p2i "http://velo.github.io/maven-formatter-plugin/p2/1.5.0" "com.marvinformatics.formatter.feature.feature.group"
   p2i "http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201405280027/" "org.sonatype.m2e.buildhelper.feature.feature.group"
   p2i "http://beust.com/eclipse/" "org.testng.eclipse.feature.group"
