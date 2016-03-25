@@ -1,5 +1,5 @@
 # my-eclipse [![Build Status](https://travis-ci.org/caarlos0/my-eclipse.svg)](https://travis-ci.org/caarlos0/my-eclipse)
 
- - `git clone git@github.com:Cunhazera/my-eclipse.git`
+ - `Clone this project`
  - `cd my-eclipse`
  - `./install`
