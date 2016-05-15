@@ -24,7 +24,7 @@ You can use it like:
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
