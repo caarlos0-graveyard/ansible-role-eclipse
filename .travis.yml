@@ -1,13 +1,16 @@
 language: generic
 sudo: required
+addons:
+  apt:
+    packages:
+      - ansible
 os:
   - linux
   - osx
 install:
-  - test "$(which apt-get)" && apt-get update && apt-get install ansible
-  - test "$(which brew)" && brew update && brew install ansible
+  - test "$(uname)" = "Darwin" && brew update && brew install ansible
   - ansible --version
-  - printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
+  - test "$(uname)" = "Darwin" || printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
 script:
   - ansible-playbook tests/test.yml -i tests/inventory
 notifications:

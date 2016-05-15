@@ -1,6 +1,7 @@
 - include: install_{{ ansible_distribution }}.yml
+- debug: var=eclipse_home
+- debug: var=eclipse
 - file: src={{ eclipse }} dest=/usr/local/bin/eclipse state=link
-- set_fact: eclipse_ini="{{ eclipse_home }}/eclipse.ini"
 - include: features.yml
 - include: lombok.yml
 - include: cleanups.yml
