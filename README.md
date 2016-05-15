@@ -1,7 +1,32 @@
-# my-eclipse [![Build Status](https://travis-ci.org/caarlos0/my-eclipse.svg)](https://travis-ci.org/caarlos0/my-eclipse)
+ansible-role-eclipse
+=========
 
-```console
-git clone git@github.com:caarlos0/my-eclipse.git
-cd my-eclipse
-./install
+An ansible role that installs an configures an Eclipse IDE with Java EE support
+and some tweaks to improve performance.
+
+Requirements
+------------
+
+- Java JDK
+
+
+Example Playbook
+----------------
+
+You can use it like:
+
+```yml
+- hosts: servers
+  roles:
+    - caarlos0.eclipse
 ```
+
+License
+-------
+
+BSD
+
+Author Information
+------------------
+
+An optional section for the role authors to include contact information, or a website (HTML is not allowed).

@@ -1,8 +1,15 @@
-language: bash
+language: python
+python: "2.7"
+sudo: false
+addons:
+  apt:
+    packages:
+      - python-pip
 install:
-  - ./build/install.sh
+  - pip install ansible
+  - ansible --version
+  - printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
 script:
-  - ./build/build.sh
+  - ansible-playbook tests/test.yml -i tests/inventory
 notifications:
-  email: false
-sudo: required
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

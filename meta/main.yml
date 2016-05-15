@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Carlos Alexandro Becker
+  description: Customized Eclipse for Java SE/EE development
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: MacOSX
+      versions:
+        - all
+  galaxy_tags:
+    - development
+    - ide
+    - java
+    - eclipse
+dependencies: []
