@@ -24,6 +24,16 @@ You can use it like:
     - caarlos0.eclipse
 ```
 
+If you just want to run this in your machine, you can:
+
+```console
+$ git clone https://github.com/caarlos0/ansible-role-eclipse
+$ cd ansible-role-eclipse
+$ ansible-playbook tests/test.yml -i tests/inventory
+```
+
+You might need to use `sudo` on Ubuntu machines.
+
 License
 -------
 
