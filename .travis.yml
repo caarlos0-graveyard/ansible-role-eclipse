@@ -1,10 +1,13 @@
 language: python
 python: "2.7"
-sudo: false
+sudo: required
 addons:
   apt:
     packages:
       - python-pip
+os:
+  - linux
+  - osx
 install:
   - pip install ansible
   - ansible --version
@@ -13,3 +16,4 @@ script:
   - ansible-playbook tests/test.yml -i tests/inventory
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  email: false

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Eclipse
 Comment=Eclipse IDE
-Exec=/opt/eclipse/eclipse -clean %F
+Exec=/opt/eclipse/eclipse %F
 Icon=/opt/eclipse/icon.xpm
 Type=Application
 StartupNotify=true
