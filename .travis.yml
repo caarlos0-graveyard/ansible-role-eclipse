@@ -8,7 +8,7 @@ os:
   - linux
   - osx
 install:
-  - test "$(uname)" = "Darwin" && brew update && brew install ansible
+  - if [ "$(uname)" = "Darwin" ]; then brew update && brew install ansible; fi
   - ansible --version
   - test "$(uname)" = "Darwin" || printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
 script:
