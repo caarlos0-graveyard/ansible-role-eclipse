@@ -1,4 +1,3 @@
-- debug: var=ansible_distribution
 - include: install_{{ ansible_distribution }}.yml
 - debug: var=eclipse_home
 - debug: var=eclipse

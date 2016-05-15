@@ -10,7 +10,8 @@ tune some configs, remove some useless stuff, and create the needed links.
 Requirements
 ------------
 
-- Java JDK
+- Java JDK (can be installed with
+[caarlos0.java-dev](https://github.com/caarlos0/ansible-role-java-dev) role).
 
 
 Example Playbook
