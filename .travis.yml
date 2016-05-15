@@ -1,17 +1,13 @@
-language: generic
-sudo: required
+language: python
+python: "2.7"
+sudo: false
 addons:
   apt:
     packages:
       - python-pip
-os:
-  - linux
-  - osx
 install:
-  - if [ "$(uname)" = "Darwin" ]; then brew update && brew install ansible; fi
-  - if [ "$(uname)" = "Linux" ]; then pip install ansible; fi
+  - pip install ansible
   - ansible --version
-  - test "$(uname)" = "Darwin" || printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
 script:
   - ansible-playbook tests/test.yml -i tests/inventory
 notifications:
