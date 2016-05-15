@@ -1,4 +1,4 @@
-ansible-role-eclipse
+ansible-role-eclipse [![Build Status](https://travis-ci.org/caarlos0/ansible-role-eclipse.svg?branch=master)](https://travis-ci.org/caarlos0/ansible-role-eclipse)
 =========
 
 An ansible role that installs an configures an Eclipse IDE with Java EE support
