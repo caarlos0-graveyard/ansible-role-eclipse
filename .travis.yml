@@ -3,12 +3,13 @@ sudo: required
 addons:
   apt:
     packages:
-      - ansible
+      - python-pip
 os:
   - linux
   - osx
 install:
   - if [ "$(uname)" = "Darwin" ]; then brew update && brew install ansible; fi
+  - if [ "$(uname)" = "Linux" ]; then pip install ansible; fi
   - ansible --version
   - test "$(uname)" = "Darwin" || printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
 script:
