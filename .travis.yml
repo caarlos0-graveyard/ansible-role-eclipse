@@ -1,15 +1,11 @@
-language: python
-python: "2.7"
+language: generic
 sudo: required
-addons:
-  apt:
-    packages:
-      - python-pip
 os:
   - linux
   - osx
 install:
-  - pip install ansible
+  - test "$(which apt-get)" && apt-get update && apt-get install ansible
+  - test "$(which brew)" && brew update && brew install ansible
   - ansible --version
   - printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
 script:
