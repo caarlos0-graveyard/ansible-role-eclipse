@@ -6,3 +6,5 @@
     - "{{ eclipse_home }}/features/*jgit*"
     - "{{ eclipse_home }}/plugins/*egit*"
     - "{{ eclipse_home }}/features/*egit*"
+    - "{{ eclipse_home }}/plugins/org.eclipse.pde*"
+    - "{{ eclipse_home }}/features/org.eclipse.pde*"
