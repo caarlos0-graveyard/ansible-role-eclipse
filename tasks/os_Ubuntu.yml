@@ -1,6 +1,4 @@
-- get_url:
-  url=http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/mars/2/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz
-  dest=/tmp/eclipse.tar.gz
+- get_url: url=http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/mars/2/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz dest=/tmp/eclipse.tar.gz
 - unarchive: src=/tmp/eclipse.tar.gz dest=/opt
 - copy: src=eclipse.desktop dest=/usr/share/applications/eclipse.desktop
 - shell: ls /opt/eclipse/eclipse
