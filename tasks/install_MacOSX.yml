@@ -1,4 +1,5 @@
 - homebrew_cask: name=eclipse-jee
 - shell: /usr/local/bin/brew cask info eclipse-jee | grep Caskroom | awk '{print $1}'
-  register: eclipse_home
-- set_fact: eclipse="{{ eclipse_home.stdout }}/Eclipse.app/Contents/MacOS/eclipse"
+  register: eclipse_folder
+- set_fact: eclipse_home="{{ eclipse_folder.stdout }}/Eclipse.app/Contents/Eclipse"
+- set_fact: eclipse="{{ eclipse_folder.stdout }}/Eclipse.app/Contents/MacOS/eclipse"
