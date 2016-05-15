@@ -1,0 +1,5 @@
+- homebrew_cask: name=eclipse-java
+- shell: /usr/local/bin/brew cask info eclipse-java | grep Caskroom | awk '{print $1}'
+  register: eclipse_home
+- shell: ls {{ eclipse_home.stdout }}/Eclipse.app/Contents/MacOS/eclipse
+  register: eclipse

@@ -1,0 +1,3 @@
+- include: os_{{ ansible_distribution }}.yml
+- debug: var=eclipse.stdout
+- file: src={{ eclipse.stdout }} dest=/usr/local/bin/eclipse state=link
