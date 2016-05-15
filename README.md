@@ -37,4 +37,4 @@ You might need to use `sudo` on Ubuntu machines.
 License
 -------
 
-BSD
+MIT
