@@ -1,2 +1,3 @@
-- get_url: url=http://projectlombok.org/downloads/lombok.jar dest={{ eclipse_home }}/lombok.jar
-- lineinfile: dest={{ eclipse_home }}/eclipse.ini state=present line='-javaagent:{{ eclipse_home }}/lombok.jar'
+- set_fact: lombok_jar="{{ eclipse_home }}/lombok.jar"
+- get_url: url=http://projectlombok.org/downloads/lombok.jar dest={{ lombok_jar }}
+- lineinfile: dest={{ eclipse_ini }} line='-javaagent:{{ lombok_jar }}'

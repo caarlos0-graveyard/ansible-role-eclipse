@@ -1,0 +1,3 @@
+- lineinfile: dest={{ eclipse_ini }} line='-Xverify:none'
+- lineinfile: dest={{ eclipse_ini }} line='-clean' insertbefore='-startup'
+- replace: dest={{ eclipse_ini }} regexp='(--launcher\.XXMaxPermSize)\n256m' replace='\1\n512m'
