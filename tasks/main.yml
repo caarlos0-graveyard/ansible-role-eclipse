@@ -2,7 +2,7 @@
 - debug: var=eclipse_home
 - debug: var=eclipse
 - file: src={{ eclipse }} dest=/usr/local/bin/eclipse state=link
+- include: cleanups.yml
 - include: features.yml
 - include: lombok.yml
-- include: cleanups.yml
 - include: config.yml
