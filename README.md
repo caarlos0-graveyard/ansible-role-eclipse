@@ -39,3 +39,10 @@ License
 -------
 
 MIT
+
+Old version
+-------
+
+
+The previous version can be found in the 
+[old branch](https://github.com/caarlos0/ansible-role-eclipse/tree/old).
