@@ -19,7 +19,7 @@ install-linux() {
   mkdir -p  ~/.local/share/applications/
   sudo ln -sf /opt/eclipse/eclipse /usr/bin/eclipse
   wget -O ~/.local/share/applications/eclipse.desktop \
-    https://raw.githubusercontent.com/caarlos0/my-eclipse/master/eclipse.desktop
+    https://raw.githubusercontent.com/caarlos0/my-eclipse/old/eclipse.desktop
 }
 
 install() {
