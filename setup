@@ -1,5 +1,5 @@
 #!/bin/sh
-if if test "$(uname)" = "Linux"; then
+if test "$(uname)" = "Linux"; then
   printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
 fi
 ansible --version
