@@ -33,8 +33,7 @@ $ cd ansible-role-eclipse
 $ ansible-playbook tests/test.yml -i tests/inventory
 ```
 
-You might need to use `sudo` on Ubuntu machines.
-
+- You might need to use `sudo` on Ubuntu machines.
 License
 -------
 
@@ -44,5 +43,5 @@ Old version
 -------
 
 
-The previous version can be found in the 
+The previous version can be found in the
 [old branch](https://github.com/caarlos0/ansible-role-eclipse/tree/old).

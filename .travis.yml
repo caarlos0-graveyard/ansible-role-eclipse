@@ -5,7 +5,7 @@ os:
   - linux
   - osx
 install:
-  - pip install ansible
+  - sudo pip install ansible
   - ansible-galaxy install -r requirements.yml -p ..
 script: ansible-playbook tests/test.yml -i tests/inventory
 notifications:
