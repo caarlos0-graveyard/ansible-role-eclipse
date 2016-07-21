@@ -5,8 +5,8 @@ os:
   - linux
   - osx
 install:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo pip install ansible; printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg; fi
-  - if [ "$TRAVIS_OS_NAME" != "linux" ]; then brew update; brew install ansible; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg; fi
+  - sudo pip install git+git://github.com/ansible/ansible.git@devel
   - ansible --version
   - ansible-galaxy install -r requirements.yml
 script: ansible-playbook tests/test.yml -i tests/inventory
