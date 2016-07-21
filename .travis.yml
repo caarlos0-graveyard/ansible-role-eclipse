@@ -4,7 +4,9 @@ python:
 os:
   - linux
   - osx
-install: pip install ansible
+install:
+  - pip install ansible
+  - ansible-galaxy install -r requirements.yml -p ..
 script: ansible-playbook tests/test.yml -i tests/inventory
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
