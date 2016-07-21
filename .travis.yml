@@ -4,12 +4,8 @@ python:
 os:
   - linux
   - osx
-install:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg; fi
-  - sudo pip install git+git://github.com/ansible/ansible.git@devel
-  - ansible --version
-  - ansible-galaxy install -r requirements.yml
-script: ansible-playbook tests/test.yml -i tests/inventory
+install: sudo pip install git+git://github.com/ansible/ansible.git@devel
+script: ./setup
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   email: false
