@@ -30,6 +30,7 @@ If you just want to run this in your machine, you can:
 ```console
 $ git clone https://github.com/caarlos0/ansible-role-eclipse
 $ cd ansible-role-eclipse
+$ ansible-galaxy install -r requirements.yml
 $ ansible-playbook tests/test.yml -i tests/inventory
 ```
 
