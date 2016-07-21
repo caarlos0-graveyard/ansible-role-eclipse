@@ -1,0 +1,8 @@
+#!/bin/sh
+if test "$(uname)" = "Linux"; then
+  printf '\n%s\n%s\n' '[privilege_escalation]' 'become = True' >> ansible.cfg
+fi
+ansible --version
+ansible-galaxy install -r requirements.yml
+sudo echo "sudo ok"
+ansible-playbook tests/test.yml -i tests/inventory

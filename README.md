@@ -25,15 +25,19 @@ You can use it like:
     - caarlos0.eclipse
 ```
 
+Install in your computer
+------------------------
+
 If you just want to run this in your machine, you can:
 
 ```console
 $ git clone https://github.com/caarlos0/ansible-role-eclipse
 $ cd ansible-role-eclipse
-$ ansible-playbook tests/test.yml -i tests/inventory
+$ ./setup
 ```
 
-You might need to use `sudo` on Ubuntu machines.
+- You'll need Ansible 2.2+ installed;
+- Running this will also install JDK 7 and 8, as well maven and gradle.
 
 License
 -------
@@ -43,6 +47,5 @@ MIT
 Old version
 -------
 
-
-The previous version can be found in the 
+The previous version (bash script) can be found in the
 [old branch](https://github.com/caarlos0/ansible-role-eclipse/tree/old).

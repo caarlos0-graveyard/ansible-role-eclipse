@@ -1,15 +1,11 @@
-language: python
-python: "2.7"
-sudo: false
-addons:
-  apt:
-    packages:
-      - python-pip
-install:
-  - pip install ansible
-  - ansible --version
-script:
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+sudo: required
+python:
+  - 2.7
+os:
+  - linux
+  - osx
+install: sudo pip install git+git://github.com/ansible/ansible.git@devel
+script: ./setup
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   email: false
